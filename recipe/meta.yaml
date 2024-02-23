@@ -1,5 +1,5 @@
 {% set name = "django-weasyprint" %}
-{% set version = "2.2.2" %}
+{% set version = "2.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/django-weasyprint-{{ version }}.tar.gz
-  sha256: 7f554bcc428293aeadc175ab5607b4f3bf30c0e5da3d4aa34453b3d96e0ffd3a
+  sha256: 2f849e15bfd6c1b2a58512097b9042eddf3533651d37d2e096cd6f7d8be6442b
 
 build:
   noarch: python
