@@ -6,21 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/django-weasyprint-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/django-weasyprint-{{ version }}.tar.gz
   sha256: 2f849e15bfd6c1b2a58512097b9042eddf3533651d37d2e096cd6f7d8be6442b
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - wheel
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - django >=3.2
     - weasyprint >=53
 
@@ -31,6 +31,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/fdemmer/django-weasyprint
