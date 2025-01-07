@@ -1,18 +1,18 @@
 {% set name = "django-weasyprint" %}
-{% set version = "2.3.0" %}
+{% set version = "2.3.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/django-weasyprint-{{ version }}.tar.gz
-  sha256: 2f849e15bfd6c1b2a58512097b9042eddf3533651d37d2e096cd6f7d8be6442b
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: cd35b8bd24b28128a17a2416d0e6f3e64cb727f25c53467150b4be16ccd01c19
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -23,7 +23,7 @@ requirements:
   run:
     - python >={{ python_min }}
     - django >=3.2
-    - weasyprint >=53
+    - weasyprint >=59
 
 test:
   imports:
